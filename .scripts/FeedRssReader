@@ -6,13 +6,13 @@ ARR_URL=("http://it.ign.com/feed.xml" "https://www.archlinux.org/feeds/news/" "h
 "http://tg24.sky.it/rss/tg24_tecnologia.xml" "http://feeds.feedburner.com/TechCrunch" "http://feeds.hwupgrade.it/rss_news.xml"
 "https://www.focus.it/rss/scienza.rss" "http://pcmagazine.it/feed/" "https://feeds.pcmag.com/Rss.aspx/SectionArticles?sectionId=1489"
 "http://feeds.ign.com/ign/games-all" "https://news.google.it/?output=rss") #array containing RSS url
-NUM=`cat numFeed.txt` #get a number stored in a .txt file to know the last url readed
+NUM=`cat /tmp/numFeed.txt` #get a number stored in a .txt file to know the last url readed
 ARR_LEN=${#ARR_URL[@]} #get the length of the array
 
 if ((NUM >= ARR_LEN)) #check if che number readed from the .txt file is >= than the length. 
 then
 	NUM=0 
-	echo NUM > numFeed.txt #put the number 0 in the file, so it can read from the beginning of the url array
+	echo NUM > /tmp/numFeed.txt #put the number 0 in the file, so it can read from the beginning of the url array
 fi
 
 RSS_URL="${ARR_URL[NUM]}" #get the url from the array
@@ -23,14 +23,14 @@ RSS_URL="${ARR_URL[NUM]}" #get the url from the array
 #you have to install xmlstarlet to use it
 wget ${RSS_URL} -O - 2>/dev/null | \
 xmlstarlet sel -t -m "/rss/channel/item" \
-  -v "title" -n -n > newsTitle.txt #it puts all of the RSS titles into a file
+  -v "title" -n -n > /tmp/newsTitle.txt #it puts all of the RSS titles into a file
 # -v "guid" -n -v "pubDate" -n -v "title" -n -v "link" -n -n #for different xml tags instead of only "title"
 #######################################
 
-echo "RSS: " `cat newsTitle.txt | cut -d$'\n' -f1` #read the file with the title, reading only the first
+echo "RSS: " `cat /tmp/newsTitle.txt | cut -d$'\n' -f1` #read the file with the title, reading only the first
 
 
 #NUM++ for next URL in next ex. of the script
 let 'NUM=NUM+1'
-echo $NUM > numFeed.txt
+echo $NUM > /tmp/numFeed.txt
 

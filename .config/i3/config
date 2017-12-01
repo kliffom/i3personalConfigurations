@@ -154,6 +154,7 @@ bindsym $mod+r mode "resize"
 bar {
 #        status_command i3status
 #	status_command exec sh ~/.scripts/i3feed
+	status_command exec sh ~/.scripts/spotify_current_i3
 }
 
 # Pulse Audio controls
@@ -182,5 +183,19 @@ bar {
 	exec_always --no-startup-id feh --bg-scale /home/kliffom/Scaricati/nerd-wallpaper.jpg
 
 #YABAR
-
 	exec --no-startup-id yabar
+
+#screenshot
+	bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h.png' -e 'mv $f ~/Immagini/screen/'
+
+
+# lock the screen
+	bindsym XF86PowerOff exec sh /home/kliffom/.scripts/lock.sh -s -b -g -d /tmp
+
+
+# shutdown
+	bindsym $mod+Shift+Control+XF86PowerOff exec poweroff
+
+
+# reboot
+	bindsym $mod+Shift+Control+r exec reboot

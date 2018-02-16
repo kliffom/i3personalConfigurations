@@ -152,9 +152,11 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-#        status_command i3status
+#	status_command i3status
 #	status_command exec sh ~/.scripts/i3feed
+
 	status_command exec sh ~/.scripts/spotify_current_i3
+#	i3bar_command ~/.i3/lemonbar/i3_lemonbar.py
 }
 
 # Pulse Audio controls
@@ -163,14 +165,14 @@ bar {
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 #AlsaMixer
-	bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ 	#increase sound volume
-	bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- 	#decrease sound volume
+	bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+ 	#increase sound volume
+	bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%- 	#decrease sound volume
 	bindsym XF86AudioMute exec amixer -q sset Master toggle		#mute sound
 	
 
 # Sreen brightness controls
-	bindsym XF86MonBrightnessUp exec xbacklight -inc 5% #increase screen brightness
-	bindsym XF86MonBrightnessDown exec xbacklight -dec 5% #decrease screen brightness
+	bindsym XF86MonBrightnessUp exec xbacklight -inc 1% #increase screen brightness
+	bindsym XF86MonBrightnessDown exec xbacklight -dec 1% #decrease screen brightness
 
 
 #Keyboard brightness controls
@@ -180,7 +182,7 @@ bar {
 
 
 #Background
-	exec_always --no-startup-id feh --bg-scale /home/kliffom/Scaricati/nerd-wallpaper.jpg
+	exec_always --no-startup-id feh --bg-scale /home/kliffom/Immagini/inspirational-wallpaper.jpg
 
 #YABAR
 	exec --no-startup-id yabar

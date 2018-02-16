@@ -1,0 +1,10 @@
+#!bin/bash
+
+ARR=("stringa Uno" "stringa Due" "stringa Tre")
+READED=`cat numFeed.txt`
+#READED=5
+echo "Da txt: " $READED
+echo ${ARR[0]}
+echo ${ARR[1]}
+echo ${ARR[2]}
+echo "Lenght: " ${#ARR[@]}

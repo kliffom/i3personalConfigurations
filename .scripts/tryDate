@@ -1,0 +1,8 @@
+#!/bin/bash
+
+nowDate=$(date +%d-%b-%H_%M)
+nowDaily=$(date +%d-%b-daily)
+nowHour=$(date +%H-%M)
+#echo "$nowDate"
+#echo "$nowDaily"
+echo "$nowHour"

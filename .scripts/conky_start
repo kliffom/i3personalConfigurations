@@ -1,0 +1,7 @@
+#!/bin/bash
+conky -c ~/.conky/Mira_multi/.conkyrc_textclock &
+conky -c ~/.conky/Mira_multi/.conkyrc_weather &
+conky -c ~/.conky/Mira_multi/.conkyrc_sys &
+conky -c ~/.conky/Mira_multi/.conkyrc_net &
+conky -c ~/.conky/Mira_multi/.conkyrc_disk &
+conky -c ~/.conky/Mira_multi/.conkyrc_mpd

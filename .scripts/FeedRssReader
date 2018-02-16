@@ -3,9 +3,9 @@
 
 ARR_URL=("http://it.ign.com/feed.xml" "https://www.archlinux.org/feeds/news/" "http://feeds.feedburner.com/TechCrunch" "https://www.focus.it/rss/tecnologia.rss" 
 "http://www.repubblica.it/rss/homepage/rss2.0.xml" "http://tg24.sky.it/rss/tg24_cronaca.xml" "http://tg24.sky.it/rss/tg24_scienze.xml"
-"http://tg24.sky.it/rss/tg24_tecnologia.xml" "http://feeds.feedburner.com/TechCrunch" "http://feeds.hwupgrade.it/rss_news.xml"
-"https://www.focus.it/rss/scienza.rss" "http://pcmagazine.it/feed/" "https://feeds.pcmag.com/Rss.aspx/SectionArticles?sectionId=1489"
-"http://feeds.ign.com/ign/games-all" "https://news.google.it/?output=rss") #array containing RSS url
+"http://tg24.sky.it/rss/tg24_tecnologia.xml" "http://feeds.hwupgrade.it/rss_news.xml"
+"https://www.focus.it/rss/scienza.rss" "https://feeds.pcmag.com/Rss.aspx/SectionArticles?sectionId=1489"
+"http://feeds.ign.com/ign/games-all") #array containing RSS url
 NUM=`cat /tmp/numFeed.txt` #get a number stored in a .txt file to know the last url readed
 ARR_LEN=${#ARR_URL[@]} #get the length of the array
 
@@ -28,6 +28,7 @@ xmlstarlet sel -t -m "/rss/channel/item" \
 #######################################
 
 echo "RSS: " `cat /tmp/newsTitle.txt | cut -d$'\n' -f1` #read the file with the title, reading only the first
+	#add implementation to zscroll -l 50
 
 
 #NUM++ for next URL in next ex. of the script
